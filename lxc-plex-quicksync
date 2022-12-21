@@ -1,0 +1,33 @@
+Installation du container LXC avec Plex et l'accélération Quicksync
+
+dans ce cas, il s'agit du premier container LXC (101)
+
+https://ashu.io/blog/media-server-lxc-proxmox/#intel
+Pour aider à repérer le Quicksync du CPU intel
+ls -l /dev/dri
+
+vi /etc/pve/lxc/101.conf
+
+on ajoute à la fin du fichier
+
+lxc.cgroup.devices.allow: c 226:* rwm
+lxc.mount.entry: /dev/dri/card0 dev/dri/card0 none bind,optional,create=file
+lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file
+
+On enregistre, on relance le container
+
+Une fois connecté sur le container LXC (101 dans mon cas)
+il suffit de faire les manipulations suivantes en root:
+
+apt update && apt install curl gnupg
+
+echo "deb https://downloads.plex.tv/repo/deb public main" >> /etc/apt/sources.list.d/plexmediaserver.list
+
+Puis:
+curl https://downloads.plex.tv/plex-keys/PlexSign.key | apt-key add -
+
+et enfin
+apt update && apt install plexmediaserver
+
+A la fin de l'installation, vous pourrez voir la bonne prise en compte du Quicksync
+ensuite, connexion sur l'adresse IP:"32400/web" pour la prise en compte du nouveau serveur de contenu par Plex
