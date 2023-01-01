@@ -59,3 +59,5 @@ PlexMediaServer install: PlexMediaServer-1.30.0.6486-629d58034 - Installation su
 Processing triggers for mailcap (3.69) ...
 
 ensuite, connexion sur l'adresse IP:"32400/web" pour la prise en compte du nouveau serveur de contenu par Plex
+
+apt install nfs-common
