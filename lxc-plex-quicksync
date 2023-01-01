@@ -6,6 +6,13 @@ https://ashu.io/blog/media-server-lxc-proxmox/#intel
 Pour aider à repérer le Quicksync du CPU intel
 ls -l /dev/dri
 
+Pour les modèles de CT, se rendre Datacenter -> nomduserveurproxmox->local -> CT Modèles, cliquer sur Templates et choisir debian 11
+
+Création sous Proxmox d'un container LXC avec ne pas oublier de décocher Conteneur non privilégié
+Dans l'onglet réseau IPv4 on coche DHCP
+Puis ensuite une fois celui-ci créé on se rend dans Options, puis Particularités Emboîter et NFS
+
+
 vi /etc/pve/lxc/101.conf
 
 on ajoute à la fin du fichier
@@ -30,4 +37,25 @@ et enfin
 apt update && apt install plexmediaserver
 
 A la fin de l'installation, vous pourrez voir la bonne prise en compte du Quicksync
+
+PlexMediaServer install: PlexMediaServer-1.30.0.6486-629d58034 - Installation starting.
+PlexMediaServer install: 
+PlexMediaServer install: Now installing based on:
+PlexMediaServer install:   Installation Type:   New
+PlexMediaServer install:   Process Control:     systemd
+PlexMediaServer install:   Plex User:           plex
+PlexMediaServer install:   Plex Group:          plex
+PlexMediaServer install:   Video Group:         input
+PlexMediaServer install:   Metadata Dir:        /var/lib/plexmediaserver/Library/Application Support
+PlexMediaServer install:   Temp Directory:      /tmp 
+PlexMediaServer install:   Lang Encoding:       en_US.UTF-8
+PlexMediaServer install:   Processor:           Intel(R) Core(TM) i3-6100 CPU @ 3.70GHz
+PlexMediaServer install:   Intel i915 Hardware: Found
+PlexMediaServer install:   Nvidia GPU card:     Not Found
+PlexMediaServer install:  
+PlexMediaServer install: Completing final configuration.
+Created symlink /etc/systemd/system/multi-user.target.wants/plexmediaserver.service -> /lib/systemd/system/plexmediaserver.service.
+PlexMediaServer install: PlexMediaServer-1.30.0.6486-629d58034 - Installation successful.  Errors: 0, Warnings: 0
+Processing triggers for mailcap (3.69) ...
+
 ensuite, connexion sur l'adresse IP:"32400/web" pour la prise en compte du nouveau serveur de contenu par Plex
