@@ -1,6 +1,8 @@
 Installation du container LXC avec Plex et l'accélération Quicksync
-
 dans ce cas, il s'agit du premier container LXC (101)
+Dans l'exemple le serveur Proxmox a pour IP: 192.168.1.20
+Partage NFS sur le serveur Proxmox: /data/
+Partage NFS monter dans le container plex: /mnt/data
 
 https://ashu.io/blog/media-server-lxc-proxmox/#intel
 Pour aider à repérer le Quicksync du CPU intel
@@ -11,7 +13,7 @@ Pour les modèles de CT, se rendre Datacenter -> nomduserveurproxmox->local -> C
 Création sous Proxmox d'un container LXC avec ne pas oublier de décocher Conteneur non privilégié
 Dans l'onglet réseau IPv4 on coche DHCP
 Puis ensuite une fois celui-ci créé on se rend dans Options, puis Particularités Emboîter et NFS
-
+pour se connecter à se container lxc-attach -n 101
 
 vi /etc/pve/lxc/101.conf
 
@@ -61,3 +63,11 @@ Processing triggers for mailcap (3.69) ...
 ensuite, connexion sur l'adresse IP:"32400/web" pour la prise en compte du nouveau serveur de contenu par Plex
 
 apt install nfs-common
+
+Pour tester le montage du partage NFS, depuis le container plex (lxc-attach -n 101)
+mount -t nfs 192.168.1.20:/data /mnt/data
+
+on déclare le partage NFS à monter dans le fichier /etc/fstab
+192.168.1.20:/data/ /mnt/data nfs
+
+puis mount -a
