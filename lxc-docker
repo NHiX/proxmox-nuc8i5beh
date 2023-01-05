@@ -18,3 +18,9 @@ Pour tester la bonne installation, on lance
 docker run hello-world
 
 Si besoin systemctl enable docker --now
+
+Montage NFS depuis la machine proxmox 192.168.1.20
+Dans le container docker
+le contenu du fichier /etc/fstab en supposant qu'on partage le repertoire depuis Proxmox /data vers le container docker dans /srv/data
+
+192.168.1.20:/data      /srv/data       nfs     defaults        0 0
