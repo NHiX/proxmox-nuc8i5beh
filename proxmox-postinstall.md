@@ -1,4 +1,4 @@
-Installation Proxmox 7.3
+**Installation Proxmox 7.3**
 DNS faire attention qu'il soit bien défini sur l'IP de la BOX (souvent 192.168.1.1) et non sur le 127.0.0.1
 
 Faire cette commande connecté en root sur la machine proxmox
@@ -17,7 +17,9 @@ deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
 Pour profiter du VirGL (accélération graphique)
 
 apt update && apt full-upgrade
+---
 apt install htop mc libgl1 libegl1 nfs-common nfs-kernel-server
+---
 
 vi /etc/exports pour configurer le partage NFS
 
@@ -27,5 +29,6 @@ vi /etc/fstab pour configurer le montage des partitions NFS distants
 
 Pour lister les containers LXC disponibles sous Proxmox
 pveam available --section system
-
+---
 pveam download local ladistributionvoulu
+---
