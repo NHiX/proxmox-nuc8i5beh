@@ -6,7 +6,7 @@ apt update && apt install apt-transport-https ca-certificates curl gnupg2 softwa
 
 Ajout du dépôt officiel de docker:
 
-'''
+```
 curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 '''
 '''
