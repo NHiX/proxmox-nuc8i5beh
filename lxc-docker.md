@@ -15,8 +15,10 @@ apt update && apt install docker-ce docker-ce-cli containerd.io docker-compose-p
 
 docker run hello-world
 ```
-Si besoin systemctl enable docker --now
-
+Si besoin:
+```
+systemctl enable docker --now
+```
 Montage NFS depuis la machine proxmox 192.168.1.20
 Dans le container docker
 le contenu du fichier /etc/fstab en supposant qu'on partage le repertoire depuis Proxmox /data vers le container docker dans /srv/data
@@ -31,18 +33,19 @@ lxc.mount.entry: /dev/net dev/net none bind,create=dir
 '''
 
 Si besoin, on peut lancer la commande suivante depuis la machine proxmox, pas du container
+```
 chown 100000:100000 /dev/net/tun
-
+```
 Pour "tester" la connexion au VPN, on lancera depuis le container rutorrent par exemple la commande:
 
-'''
+```
 docker exec -it rutorrent curl ifconfig.me
-'''
+```
 L'adresse IP retournée doit être differente de celle qu'on obtient en local depuis le container LXC
 avec la commande:
 
-'''
+```
 curl ifconfig.me
-'''
+```
 
 Voir la page https://pve.proxmox.com/wiki/OpenVPN_in_LXC
