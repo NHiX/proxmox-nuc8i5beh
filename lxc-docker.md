@@ -27,10 +27,10 @@ le contenu du fichier /etc/fstab en supposant qu'on partage le repertoire depuis
 
 Concernant OpenVPN pour le container
 On va ajouter les 2 lignes au fichiers de configuration du container LXC
-'''
+```
 lxc.cgroup2.devices.allow: c 10:200 rwm
 lxc.mount.entry: /dev/net dev/net none bind,create=dir
-'''
+```
 
 Si besoin, on peut lancer la commande suivante depuis la machine proxmox, pas du container
 ```
