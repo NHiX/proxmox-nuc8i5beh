@@ -24,3 +24,10 @@ Dans le container docker
 le contenu du fichier /etc/fstab en supposant qu'on partage le repertoire depuis Proxmox /data vers le container docker dans /srv/data
 
 192.168.1.20:/data      /srv/data       nfs     defaults        0 0
+
+Concernant OpenVPN pour le container
+On va ajouter les 2 lignes au fichiers de configuration du container LXC
+'''
+lxc.cgroup2.devices.allow: c 10:200 rwm
+lxc.mount.entry: /dev/net dev/net none bind,create=dir
+'''
