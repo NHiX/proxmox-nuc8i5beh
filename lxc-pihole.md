@@ -1,6 +1,18 @@
 Installation de Pihole dans un container LXC sur Proxmox
 
 Création d'un container LXC dans Proxmox
+
+```
+pveam update
+pveam available --section system
+```
+Dans cet exemple on téléchargera une distribution Debian 11
+
+```
+pveam download local debian-11-standard_11.6-1_amd64.tar.zst
+
+
+
 une fois connecté en root sur le container:
 
 ```
