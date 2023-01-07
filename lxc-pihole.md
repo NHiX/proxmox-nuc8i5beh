@@ -4,7 +4,7 @@ Création d'un container LXC dans Proxmox
 une fois connecté en root sur le container:
 
 ```
-apt update && apt install -y curl
+apt update && apt install -y curl &&
 curl -sSL https://install.pi-hole.net | bash
 ```
 
