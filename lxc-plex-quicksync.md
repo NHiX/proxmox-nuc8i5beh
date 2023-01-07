@@ -29,19 +29,21 @@ On enregistre, on relance le container, avec la commande reboot dans le containe
 
 Une fois connecté sur le container LXC (101 dans mon cas)
 il suffit de faire les manipulations suivantes en root:
-
+```
 apt update && apt install curl gnupg
 
 echo "deb https://downloads.plex.tv/repo/deb public main" >> /etc/apt/sources.list.d/plexmediaserver.list
-
+```
 Puis:
+```
 curl https://downloads.plex.tv/plex-keys/PlexSign.key | apt-key add -
-
+```
 et enfin
+```
 apt update && apt install plexmediaserver
-
+```
 A la fin de l'installation, vous pourrez voir la bonne prise en compte du Quicksync
-
+```
 PlexMediaServer install: PlexMediaServer-1.30.0.6486-629d58034 - Installation starting.
 PlexMediaServer install: 
 PlexMediaServer install: Now installing based on:
@@ -61,11 +63,11 @@ PlexMediaServer install: Completing final configuration.
 Created symlink /etc/systemd/system/multi-user.target.wants/plexmediaserver.service -> /lib/systemd/system/plexmediaserver.service.
 PlexMediaServer install: PlexMediaServer-1.30.0.6486-629d58034 - Installation successful.  Errors: 0, Warnings: 0
 Processing triggers for mailcap (3.69) ...
-
+```
 ensuite, connexion sur l'adresse IP:"32400/web" pour la prise en compte du nouveau serveur de contenu par Plex
-
+```
 apt install nfs-common
-
+```
 Pour tester le montage du partage NFS, depuis le container plex (lxc-attach -n 101)
 mount -t nfs 192.168.1.20:/data /mnt/data
 
