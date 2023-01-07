@@ -35,3 +35,7 @@ pveam available --section system
 ---
 pveam download local ladistributionvoulu
 ---
+
+Merci à Adrien D et son site [linuxtricks.fr](https://www.linuxtricks.fr)
+Merci aussi à https://tteck.github.io/Proxmox/
+
