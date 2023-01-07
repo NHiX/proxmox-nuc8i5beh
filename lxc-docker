@@ -31,3 +31,16 @@ On va ajouter les 2 lignes au fichiers de configuration du container LXC
 lxc.cgroup2.devices.allow: c 10:200 rwm
 lxc.mount.entry: /dev/net dev/net none bind,create=dir
 '''
+
+Pour "tester" la connexion au VPN, on lancera depuis le container rutorrent par exemple la commande:
+
+'''
+docker exec -it rutorrent curl ifconfig.me
+'''
+L'adresse IP retournée doit être differente de celle qu'on obtient en local depuis le container LXC
+avec la commande:
+
+'''
+curl ifconfig.me
+'''
+
