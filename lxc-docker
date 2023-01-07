@@ -32,6 +32,9 @@ lxc.cgroup2.devices.allow: c 10:200 rwm
 lxc.mount.entry: /dev/net dev/net none bind,create=dir
 '''
 
+Si besoin, on peut lancer la commande suivante depuis la machine proxmox, pas du container
+chown 100000:100000 /dev/net/tun
+
 Pour "tester" la connexion au VPN, on lancera depuis le container rutorrent par exemple la commande:
 
 '''
@@ -44,3 +47,4 @@ avec la commande:
 curl ifconfig.me
 '''
 
+Voir la page https://pve.proxmox.com/wiki/OpenVPN_in_LXC
