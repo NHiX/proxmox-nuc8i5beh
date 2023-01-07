@@ -6,7 +6,9 @@ Partage NFS monter dans le container plex: /mnt/data
 
 https://ashu.io/blog/media-server-lxc-proxmox/#intel
 Pour aider à repérer le Quicksync du CPU intel
+```
 ls -l /dev/dri
+```
 
 Pour les modèles de CT, se rendre Datacenter -> nomduserveurproxmox->local -> CT Modèles, cliquer sur Templates et choisir debian 11
 
@@ -14,16 +16,16 @@ Création sous Proxmox d'un container LXC avec ne pas oublier de décocher Conte
 Dans l'onglet réseau IPv4 on coche DHCP
 Puis ensuite une fois celui-ci créé on se rend dans Options, puis Particularités Emboîter et NFS
 pour se connecter à se container lxc-attach -n 101
-
+```
 vi /etc/pve/lxc/101.conf
-
+```
 on ajoute à la fin du fichier
-
+```
 lxc.cgroup.devices.allow: c 226:* rwm
 lxc.mount.entry: /dev/dri/card0 dev/dri/card0 none bind,optional,create=file
 lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file
-
-On enregistre, on relance le container
+```
+On enregistre, on relance le container, avec la commande reboot dans le container
 
 Une fois connecté sur le container LXC (101 dans mon cas)
 il suffit de faire les manipulations suivantes en root:
