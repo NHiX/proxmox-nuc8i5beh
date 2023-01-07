@@ -21,7 +21,7 @@ apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin nfs-comm
 Pour tester la bonne installation, on lance
 '''
 docker run hello-world
-'''
+```
 Si besoin systemctl enable docker --now
 
 Montage NFS depuis la machine proxmox 192.168.1.20
