@@ -48,4 +48,11 @@ avec la commande:
 curl ifconfig.me
 ```
 
+installation de lazydocker dans le container
+dans le .bashrc de l'utilisateur root
+
+```
+echo "alias lzd='docker run -d --name lazydocker ’ >> /root/.bashrc
+```
+
 Voir la page https://pve.proxmox.com/wiki/OpenVPN_in_LXC
