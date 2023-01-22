@@ -16,7 +16,12 @@ Une fois ceci fait on ira éditer le fichier
 ```
 vi /etc/exports
 ```
-
+```
+/data/ 192.168.1.10(rw,sync) secondeIP(rw,sync)
+```
+Puis on relance le service nfs-kernel-server avec
+```
+service nfs-kernel-server restart
 
 
 https://ashu.io/blog/media-server-lxc-proxmox/#intel
