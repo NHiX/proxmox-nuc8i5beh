@@ -39,3 +39,4 @@ pveam download local ladistributionvoulu
 Merci à Adrien D et son site [linuxtricks.fr](https://www.linuxtricks.fr)
 Merci aussi à https://tteck.github.io/Proxmox/
 
+NB: Pour la création d'une VM RockyLinux ou Centos ou même AlmaLinux pour le CPU renseigner host
