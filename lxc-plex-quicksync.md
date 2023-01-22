@@ -10,9 +10,9 @@ on install en cli
 apt install nfs-common nfs-kernel-server
 ```
 On creera le repertoire de partage à diffuser avec
-```mkdir /data/
+```mkdir /data/```
 
-, une fois ceci fait on ira éditer le fichier 
+Une fois ceci fait on ira éditer le fichier 
 ```
 vi /etc/exports
 ```
