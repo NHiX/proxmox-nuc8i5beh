@@ -22,7 +22,7 @@ vi /etc/exports
 Puis on relance le service nfs-kernel-server avec
 ```
 service nfs-kernel-server restart
-
+```
 
 https://ashu.io/blog/media-server-lxc-proxmox/#intel
 Pour aider à repérer le Quicksync du CPU intel
