@@ -68,9 +68,14 @@ ensuite, connexion sur l'adresse IP:"32400/web" pour la prise en compte du nouve
 ```
 apt install nfs-common
 ```
-Pour tester le montage du partage NFS, depuis le container plex (lxc-attach -n 101)
+Pour tester le montage du partage NFS, depuis le container plex 
+```
+lxc-attach -n 101
+```
+Puis on lance la commande en manuel
+```
 mount -t nfs 192.168.1.20:/data /mnt/data
-
+```
 on déclare le partage NFS à monter dans le fichier /etc/fstab
 ```
 192.168.1.20:/data/ /mnt/data nfs
