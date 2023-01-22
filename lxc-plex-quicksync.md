@@ -72,6 +72,9 @@ Pour tester le montage du partage NFS, depuis le container plex (lxc-attach -n 1
 mount -t nfs 192.168.1.20:/data /mnt/data
 
 on déclare le partage NFS à monter dans le fichier /etc/fstab
+```
 192.168.1.20:/data/ /mnt/data nfs
-
-puis mount -a
+```
+puis 
+```
+mount -a
