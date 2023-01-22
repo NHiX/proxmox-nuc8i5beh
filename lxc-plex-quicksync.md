@@ -4,6 +4,21 @@ Dans l'exemple le serveur Proxmox a pour IP: 192.168.1.20
 Partage NFS sur le serveur Proxmox: /data/
 Partage NFS monter dans le container plex: /mnt/data
 
+côté proxmox
+on install en cli
+```
+apt install nfs-common nfs-kernel-server
+```
+On creera le repertoire de partage à diffuser avec
+```mkdir /data/
+
+, une fois ceci fait on ira éditer le fichier 
+```
+vi /etc/exports
+```
+
+
+
 https://ashu.io/blog/media-server-lxc-proxmox/#intel
 Pour aider à repérer le Quicksync du CPU intel
 ```
