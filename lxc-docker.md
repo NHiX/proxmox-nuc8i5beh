@@ -15,6 +15,7 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] 
 ```
 apt update && apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin nfs-common
 ```
+On va ensuite tester la bonne récupération d'un container de test
 ```
 docker run hello-world
 ```
