@@ -56,7 +56,10 @@ installation de lazydocker dans le container
 dans le .bashrc de l'utilisateur root
 
 ```
-echo "alias lzd='docker run -d --name lazydocker ’ >> /root/.bashrc
+echo "alias lzd='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v /root/config:/.config/jesseduffield/lazydocker lazyteam/lazydocker'" >> ~/.bashrc
 ```
 
+```
+sources .bashrc
+```
 Voir la page https://pve.proxmox.com/wiki/OpenVPN_in_LXC
