@@ -1,0 +1,195 @@
+version: "3"
+services:
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - /root/data/caddy:/data
+      - /root/config/caddy:/config
+    ports:
+    - 80:80
+    - 443:443
+    network_mode: "host"
+    depends_on:
+      - overseerr
+      - heimdall
+      - guacamole
+      - sabnzbd
+      - qbittorrent
+      - deluge
+      - radarr
+      - sonarr
+      - transmission
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    volumes:
+      - /root/config/radarr:/config
+      - /SSD/Downloads/Films:/movies #optional
+      - /SSD/Downloads:/downloads #optional
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /root/config/sonarr:/config
+      - /SSD/Downloads/Series:/tv #optional
+      - /SSD/Downloads:/downloads #optional
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+  webtop:
+    image: lscr.io/linuxserver/webtop:latest
+    container_name: webtop
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - KEYBOARD=fr-fr-azerty #optional
+      - TITLE=Webtop #optional
+    volumes:
+      - /root/config/webtop:/config
+      - /var/run/docker.sock:/var/run/docker.sock #optional
+    ports:
+      - 3000:3000
+    shm_size: "1gb" #optional
+    restart: unless-stopped
+  heimdall:
+    image: lscr.io/linuxserver/heimdall:latest
+    container_name: heimdall
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    volumes:
+      - /root/config/heimdall:/config
+    ports:
+      - 8880:80
+      - 6443:443
+    restart: unless-stopped
+  overseerr:
+    image: lscr.io/linuxserver/overseerr:latest
+    container_name: overseerr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    volumes:
+      - /root/config/overseerr:/config
+    ports:
+      - 5055:5055
+    restart: unless-stopped 
+  deluge:
+    image: lscr.io/linuxserver/deluge:latest
+    container_name: deluge
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - DELUGE_LOGLEVEL=error #optional
+    volumes:
+      - /root/config/deluge:/config
+      - /SSD/Downloads:/downloads
+    depends_on:
+      - gluetun
+    network_mode : "container:gluetun"
+    restart: unless-stopped
+  sabnzbd:
+    image: lscr.io/linuxserver/sabnzbd:latest
+    container_name: sabnzbd
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    volumes:
+      - /root/config/sabnzbd:/config
+      - /SSD/Downloads:/downloads #optional
+      - /SSD/incomplete:/incomplete-downloads #optional
+    ports:
+      - 8081:8080
+    restart: unless-stopped
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      - 8888:8888/tcp # HTTP proxy
+      - 8388:8388/tcp # Shadowsocks
+      - 8388:8388/udp # Shadowsocks
+      - 5000:5000
+      - 51413:51413
+      - 51413:51413/udp
+      - 6881:6881/udp
+      - 6881:6881
+      - 8112:8112
+      - 8080:8080 # rutorrent
+      - 9091:9091 # transmission not functionnal
+    volumes:
+      - /root/config/vpn/gluetun
+    environment:
+      # See https://github.com/qdm12/gluetun/wiki
+      - VPN_SERVICE_PROVIDER=privado
+      - VPN_TYPE=openvpn
+      # OpenVPN:
+      - OPENVPN_USER=***********
+      - OPENVPN_PASSWORD=************
+      - TZ=Europe/Paris
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    container_name: transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - TRANSMISSION_WEB_HOME=/combustion-release/ #optional
+      - WHITELIST=iplist #optional
+      - PEERPORT=peerport #optional
+      - HOST_WHITELIST=dnsname list #optional
+    volumes:
+      - /root/config/transmission:/config
+      - /SSD/Downloads:/downloads
+      - /SSD/Downloads/torrents:/watch
+    depends_on:
+      - gluetun
+    network_mode : "container:gluetun"
+    restart: unless-stopped
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    environment:
+      - PUID=10000
+      - PGID=10000
+      - TZ=Europe/Paris
+      - WEBUI_PORT=8080
+    volumes:
+      - /docker/config:/config
+      - /SSD/Downloads:/downloads
+    restart: unless-stopped
+    depends_on:
+      - gluetun
+    network_mode : "container:gluetun"
+    restart: unless-stopped
+  guacamole:
+    image: maxwaldorf/guacamole
+    container_name: guacamole
+    volumes:
+      - postgres:/config
+    ports:
+      - 9999:8080
+volumes:
+  postgres:
+    driver: local
