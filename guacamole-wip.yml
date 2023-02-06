@@ -32,20 +32,20 @@ services:
     networks:
       - guacamole
 
-guacamole_db:
-  image: mariadb:latest
-  container_name: guacamole_db
-  environment:
-    MYSQL_ROOT_PASSWORD: U4Zzu794C6Bign
-    MYSQL_DATABASE: guacamole_db
-    MYSQL_USER: guacamole_user
-    MYSQL PASSWORD: Zrjr7dpS8L5R27
-  volumes: 
-    - /home/docker/appdata/guacamole/init:/docker-entrypoint-initdb.d:z #chmod777 init/
-    - /home/docker/appdata/guacamole/data:/var/lib/mysql
-  restart: unless-stopped
-  networks:
-    - guacamole_db
+  guacamole_db:
+    image: mariadb:latest
+    container_name: guacamole_db
+    environment:
+      MYSQL_ROOT_PASSWORD: U4Zzu794C6Bign
+      MYSQL_DATABASE: guacamole_db
+      MYSQL_USER: guacamole_user
+      MYSQL PASSWORD: Zrjr7dpS8L5R27
+    volumes: 
+      - /home/docker/appdata/guacamole/init:/docker-entrypoint-initdb.d:z #chmod777 init/
+      - /home/docker/appdata/guacamole/data:/var/lib/mysql
+    restart: unless-stopped
+    networks:
+      - guacamole_db
 
 networks:
   guacamole:
