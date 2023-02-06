@@ -6,8 +6,8 @@ services:
     environment:
       GUACD_HOSTNAME: guacd
       MYSQL_HOSTNAME: guacamole_db
-      MYSQL DATABASE: guacamole db
-      MYSQL USER: guacamole user
+      MYSQL DATABASE: guacamole_db
+      MYSQL USER: guacamole_user
       MYSQL_PASSWORD: Zrjr7dpS8L5R27
       #HEADER_ENABLED: true 
       #HTTP_AUTH_HEADER: X-Forwarded-User
