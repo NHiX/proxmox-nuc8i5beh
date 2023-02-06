@@ -16,7 +16,13 @@ au bon fonctionnement de guacamole
 ```
 docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --mysql > initdb.sql
 ```
-
+Une fois ceci fait, on relance la stack guacamole
+puis au besoin on efface le repertoire data
+```
+rm -fr /home/docker/appdata/guacamole/data/
+```
 On peut à nouveau se connecter la WebUI de guacamole
 http://192.168.1.62:8080/guacamole
+
+
 
