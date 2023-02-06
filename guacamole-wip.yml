@@ -6,8 +6,8 @@ services:
     environment:
       GUACD_HOSTNAME: guacd
       MYSQL_HOSTNAME: guacamole_db
-      MYSQL DATABASE: guacamole_db
-      MYSQL USER: guacamole_user
+      MYSQL_DATABASE: guacamole_db
+      MYSQL_USER: guacamole_user
       MYSQL_PASSWORD: Zrjr7dpS8L5R27
       #HEADER_ENABLED: true 
       #HTTP_AUTH_HEADER: X-Forwarded-User
@@ -39,7 +39,7 @@ services:
       MYSQL_ROOT_PASSWORD: U4Zzu794C6Bign
       MYSQL_DATABASE: guacamole_db
       MYSQL_USER: guacamole_user
-      MYSQL PASSWORD: Zrjr7dpS8L5R27
+      MYSQL_PASSWORD: Zrjr7dpS8L5R27
     volumes: 
       - /home/docker/appdata/guacamole/init:/docker-entrypoint-initdb.d:z #chmod777 init/
       - /home/docker/appdata/guacamole/data:/var/lib/mysql
