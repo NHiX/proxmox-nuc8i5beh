@@ -17,10 +17,16 @@ Une fois le message de bienvenue qui apparait on pourra procéder
 ```
 docker run -p 80:80 --name nginx-docker nginx:latest
 ```
-explication de la commande:
+explication de la commande:  
 lancement du serveur web nginx, qui sera accessible sur localhost (127.0.0.1) port 80
-l'option -p permet de binder le port du container avec celui sur lequel il sera accessible
+
+l'option -p permet de binder le port du container avec celui sur lequel il sera accessible  
+
 -p externe:interne 
-le --name permet de nommer le container, il apparaitra comme ça sous son nom 
+
+le --name permet de nommer le container, il apparaitra comme ça sous son nom  
 quand on fera un docker ps
-le nginx:latest, on va chercher le container nginx dans sa dernière version publiée sur le hub.docker.com
+
+le nginx:latest, on va chercher le container 
+
+nginx dans sa dernière version publiée sur le hub.docker.com
