@@ -15,14 +15,15 @@ Une fois le message de bienvenue qui apparait on pourra procéder
 
 ## Lancement d'un second container pour un serveur web
 ```
-docker run -p 80:80 --name nginx-docker nginx:latest
+docker run -d -p 80:80 --name nginx-docker nginx:latest
 ```
 explication de la commande:  
 lancement du serveur web nginx, qui sera accessible sur localhost (127.0.0.1) port 80
 
 l'option -p permet de binder le port du container avec celui sur lequel il sera accessible  
+-p externe:interne  
+-d mode daemon, c'est à dire que le container continu à s'éxécuter en arrière plan  
 
--p externe:interne 
 
 le --name permet de nommer le container, il apparaitra comme ça sous son nom  
 quand on fera un docker ps
