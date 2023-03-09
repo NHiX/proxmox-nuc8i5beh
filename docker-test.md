@@ -11,9 +11,19 @@ run, on va demander à docker de "lancer" le container hello-world,
 c'est un container qui va juste afficher un message
 
 Une fois le message de bienvenue qui apparait on pourra procéder
-à des exercices plus complexes.
+à des exercices plus complexes. Comme celui proposé dans le message
+de ce container...
 
-## Lancement d'un second container pour un serveur web
+## Lancement d'un second container se connecter dans un container ubuntu
+```
+docker run -it ubuntu /bin/bash
+```
+On se retrouve donc à télécharger ce container car celui-ci n'existe pas encore 
+sur notre machine, puis apparait un shell bash, nous nous trouvons donc bien
+dans le container ubuntu. 
+root@c453t23:/#  
+
+## Lancement d'un troisième container exemple pour un serveur web
 ```
 docker run -d -p 80:80 --name nginx-docker nginx:latest
 ```
