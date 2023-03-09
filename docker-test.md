@@ -51,10 +51,10 @@ pour un container, il faudra utiliser le paramétre --name nomducontainer
 
 ## Lancement d'un troisième container exemple pour un serveur web
 ```
-docker run -d -p 80:80 --name nginx-docker nginx:latest
+docker run -d -p 8080:80 --name nginx-docker nginx:latest
 ```
 explication de la commande:  
-lancement du serveur web nginx, qui sera accessible sur localhost (127.0.0.1) port 80
+lancement du serveur web nginx, qui sera accessible sur localhost (127.0.0.1) port 8080
 
 l'option -p permet de binder le port du container avec celui sur lequel il sera accessible  
 -p externe:interne  
