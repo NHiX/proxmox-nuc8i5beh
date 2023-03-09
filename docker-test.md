@@ -35,18 +35,6 @@ ubuntu lancement du container ubuntu, par défaut avec le tag latest.
 bash binaire à lancer quand on se connecte dans ce container. 
 
 ## Voir les containers lancés sur la machine
-Il suffit de rentrer la commande 
-```
-docker ps -a
-```
-On devrait obtenir cette affichage:
-```
-CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
-d8ce7caf400a   ubuntu        "bash"     5 seconds ago    Exited (0) 3 seconds ago              adoring_lalande
-04c652b113d1   hello-world   "/hello"   12 seconds ago   Exited (0) 11 seconds ago             determined_leakey
-```
-On remarque dans la colonne NAMES, les noms fournit au hasard par docker, si on souhaite définir un nom spécifique
-pour un container, il faudra utiliser le paramétre --name nomducontainer
 
 
 ## Lancement d'un troisième container exemple pour un serveur web
@@ -107,7 +95,20 @@ Commercial support is available at
 On sait que le service nginx fonctionne parfaitement
 
 ## Monitorer les containers
-avec la commande
+Il suffit de rentrer la commande 
+```
+docker ps -a
+```
+On devrait obtenir cette affichage:
+```
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
+d8ce7caf400a   ubuntu        "bash"     5 seconds ago    Exited (0) 3 seconds ago              adoring_lalande
+04c652b113d1   hello-world   "/hello"   12 seconds ago   Exited (0) 11 seconds ago             determined_leakey
+40d35efca128   nginx:latest  "/docker-entrypoint.…"  11 minutes ago Up 11 minutes 0.0.0.0:8080->80/tcp nginx-docker
+```
+On remarque dans la colonne NAMES, les noms fournit au hasard par docker, si on souhaite définir un nom spécifique
+pour un container, il faudra utiliser le paramétre --name nomducontainer, on peut voir aussi le port exposé et bindé
+Pour aller plus loin, il existe la commande
 ```
 docker stats
 ```
@@ -117,6 +118,7 @@ CONTAINER ID   NAME           CPU %     MEM USAGE / LIMIT     MEM %     NET I/O 
 40d35efca128   nginx-docker   0.00%     2.617MiB / 3.832GiB   0.07%     3.61kB / 0B   0B / 16.4kB   3
 ```
 On remarque ici les informations sont très differentes d'un docker ps, ceux qui rend cette commande complémentaire à docker ps -a
+On quitte cette commande avec un CTRL+C
 
 ### Ce qu'on sait faire avec docker pour le moment
 
