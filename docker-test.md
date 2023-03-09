@@ -136,6 +136,11 @@ CONTAINER ID   NAME           CPU %     MEM USAGE / LIMIT     MEM %     NET I/O 
 On remarque ici les informations sont très differentes d'un docker ps, ceux qui rend cette commande complémentaire à docker ps -a
 On quitte cette commande avec un CTRL+C
 
+On peut aussi voir les logs du container
+```
+docker logs nginx-docker
+```
+
 ## Faire le ménage dans les containers sur la machine
 ```
 docker container prune
@@ -162,3 +167,5 @@ voir les containers présents sur la machine
 executer un container en arrière plan
 
 Effacer tous les containers de la machine
+
+Voir les journaux du container
