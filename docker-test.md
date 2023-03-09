@@ -141,6 +141,31 @@ On peut aussi voir les logs du container
 docker logs nginx-docker
 ```
 
+## Monter un répertoire (binder)
+on va créer un fichier index.html avec la commande:
+```
+echo "Test" > /$HOME/$USER/index.html
+```
+ensuite on lancera un docker ps -a afin de vérifier que le container appelé nginx-docker ne soit plus lancé
+```
+docker stop nginx-docker && docker rm nginx-docker
+```
+On relance à nouveau le container avec le montage du repertoire de l'utilisateur
+```
+docker run -d -p 8080:80 -v /home/$USER:/usr/share/nginx/html --name nginx-docker nginx
+```
+On va monter le repertoire du container /usr/share/nginx/html dans le repertoire utilisateur, là où le fichier index.html sera chargé
+on va pouvoir le vérifier avec:
+```
+docker exec -it nginx-docker bash
+```
+Puis une fois dans le container, on lance la commande:
+```
+curl localhost
+```
+Il devrait retourner le contenu du fichier index.html
+
+
 ## Faire le ménage dans les containers sur la machine
 ```
 docker container prune
@@ -165,6 +190,8 @@ choisir la version du container à lancer
 voir les containers présents sur la machine
 
 executer un container en arrière plan
+
+Binder ou monter un repertoire 
 
 Effacer tous les containers de la machine
 
