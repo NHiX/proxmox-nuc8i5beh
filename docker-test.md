@@ -94,7 +94,7 @@ On sait que le service nginx fonctionne parfaitement
 ## Voir les containers lancés sur la machine
 Il suffit de rentrer la commande 
 ```
-docker ps -a
+docker ps
 ```
 On devrait obtenir cette affichage:
 ```
@@ -103,6 +103,7 @@ d8ce7caf400a   ubuntu        "bash"     5 seconds ago    Exited (0) 3 seconds ag
 04c652b113d1   hello-world   "/hello"   12 seconds ago   Exited (0) 11 seconds ago             determined_leakey
 40d35efca128   nginx:latest  "/docker-entrypoint.…"  11 minutes ago Up 11 minutes 0.0.0.0:8080->80/tcp nginx-docker
 ```
+NB: On peut lancer la commande docker ps -a afin de voir tout les containers même ceux stoppés  
 On remarque dans la colonne NAMES, les noms fournit au hasard par docker, si on souhaite définir un nom spécifique
 pour un container, il faudra utiliser le paramétre --name nomducontainer, on peut voir aussi le port exposé et bindé
 ## Monitorer les containers
