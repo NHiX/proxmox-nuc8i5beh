@@ -138,8 +138,9 @@ On quitte cette commande avec un CTRL+C
 
 On peut aussi voir les logs du container
 ```
-docker logs nginx-docker
+docker logs nginx-docker -f
 ```
+Le paramétre -f a le même effet que la commande tail -f
 
 ## Monter un répertoire (binder)
 on va créer un fichier index.html avec la commande:
@@ -196,3 +197,10 @@ Binder ou monter un repertoire
 Effacer tous les containers de la machine
 
 Voir les journaux du container
+
+## Aller plus loin avec docker
+Inspecter la configuration d'un container
+```
+docker inspect nginx-docker
+```
+
