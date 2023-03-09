@@ -71,10 +71,16 @@ nginx dans sa dernière version publiée sur le hub.docker.com
 ### Ce qu'on sait faire avec docker pour le moment
 
 lancer un container
+
 entrer dans un container
+
 rediriger un port d'un container
+
 nommer un container
+
 executer une commande qui se trouve dans un container
+
 choisir la version du container à lancer
+
 voir les containers présents sur la machine
 
