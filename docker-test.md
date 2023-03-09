@@ -32,10 +32,7 @@ Analyse des paramètres passés à docker
 
 ubuntu lancement du container ubuntu, par défaut avec le tag latest. 
 
-bash binaire à lancer quand on se connecte dans ce container. 
-
-## Voir les containers lancés sur la machine
-
+bash binaire à lancer quand on se connecte dans ce container.
 
 ## Lancement d'un troisième container exemple pour un serveur web
 ```
@@ -94,7 +91,7 @@ Commercial support is available at
 ```
 On sait que le service nginx fonctionne parfaitement
 
-## Monitorer les containers
+## Voir les containers lancés sur la machine
 Il suffit de rentrer la commande 
 ```
 docker ps -a
@@ -108,6 +105,7 @@ d8ce7caf400a   ubuntu        "bash"     5 seconds ago    Exited (0) 3 seconds ag
 ```
 On remarque dans la colonne NAMES, les noms fournit au hasard par docker, si on souhaite définir un nom spécifique
 pour un container, il faudra utiliser le paramétre --name nomducontainer, on peut voir aussi le port exposé et bindé
+## Monitorer les containers
 Pour aller plus loin, il existe la commande
 ```
 docker stats
