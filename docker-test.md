@@ -98,7 +98,14 @@ docker stop nginx-docker
 puis 
 ```
 docker rm nginx-docker
+```
+Pour supprimer l'image du container
 
+## Mettre à jour le container
+```
+docker pull nginx-docker
+```
+Va télécharger de façon automatique si le container a été mis à jour depuis le hub.docker.com
 
 ## Voir les containers lancés sur la machine
 Il suffit de rentrer la commande 
