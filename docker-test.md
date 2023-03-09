@@ -21,13 +21,18 @@ docker run -it ubuntu bash
 On se retrouve donc à télécharger ce container car celui-ci n'existe pas encore 
 sur notre machine, puis apparait un shell bash, nous nous trouvons donc bien
 dans le container ubuntu. 
+
 root@c453t23:/#  
+
 On peut taper n'importe quelle commande comme si on se trouve sur ubuntu
 Pour sortir du container, il suffit d'entrer exit
 Analyse des paramètres passés à docker
-  -it signifie, mode interactif où le prompt sera dans le container ubuntu. 
-  ubuntu lancement du container ubuntu, par défaut avec le tag latest. 
-  bash binaire à lancer quand on se connecte dans ce container. 
+
+-it signifie, mode interactif où le prompt sera dans le container ubuntu. 
+
+ubuntu lancement du container ubuntu, par défaut avec le tag latest. 
+
+bash binaire à lancer quand on se connecte dans ce container. 
 ## Lancement d'un troisième container exemple pour un serveur web
 ```
 docker run -d -p 80:80 --name nginx-docker nginx:latest
