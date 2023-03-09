@@ -68,6 +68,20 @@ le nginx:latest, on va chercher le container
 
 nginx dans sa dernière version publiée sur le hub.docker.com
 
+## Se connecter au container pendant qu'il est lancé
+On va se connecter au container nginx-docker avec la commande:
+```
+docker exec -it -name nginx-docker /bin/bash
+```
+Une fois dans ce container, pour tester le bon fonctionnement de celui-ci
+On peut executer
+```
+curl localhost
+```
+
+
+
+
 ### Ce qu'on sait faire avec docker pour le moment
 
 lancer un container
