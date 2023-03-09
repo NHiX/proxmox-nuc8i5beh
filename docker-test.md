@@ -84,3 +84,4 @@ choisir la version du container à lancer
 
 voir les containers présents sur la machine
 
+executer un container en arrière plan
