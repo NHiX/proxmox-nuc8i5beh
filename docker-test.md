@@ -91,6 +91,15 @@ Commercial support is available at
 ```
 On sait que le service nginx fonctionne parfaitement
 
+## Stopper le container nginx-docker
+```
+docker stop nginx-docker
+```
+puis 
+```
+docker rm nginx-docker
+
+
 ## Voir les containers lancés sur la machine
 Il suffit de rentrer la commande 
 ```
@@ -120,6 +129,13 @@ CONTAINER ID   NAME           CPU %     MEM USAGE / LIMIT     MEM %     NET I/O 
 On remarque ici les informations sont très differentes d'un docker ps, ceux qui rend cette commande complémentaire à docker ps -a
 On quitte cette commande avec un CTRL+C
 
+## Faire le ménage dans les containers sur la machine
+```
+docker container prune
+```
+Répondre Y à la question afin d'effacer de la machine toutes les images des containers téléchargés.
+
+
 ### Ce qu'on sait faire avec docker pour le moment
 
 lancer un container
@@ -137,3 +153,5 @@ choisir la version du container à lancer
 voir les containers présents sur la machine
 
 executer un container en arrière plan
+
+Effacer tous les containers de la machine
