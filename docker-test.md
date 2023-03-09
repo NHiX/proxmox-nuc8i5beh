@@ -144,7 +144,7 @@ docker logs nginx-docker
 ## Monter un répertoire (binder)
 on va créer un fichier index.html avec la commande:
 ```
-echo "Test" > /$HOME/$USER/index.html
+echo "Test" > $HOME/index.html
 ```
 ensuite on lancera un docker ps -a afin de vérifier que le container appelé nginx-docker ne soit plus lancé
 ```
