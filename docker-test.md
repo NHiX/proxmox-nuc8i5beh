@@ -106,7 +106,17 @@ Commercial support is available at
 ```
 On sait que le service nginx fonctionne parfaitement
 
-
+## Monitorer les containers
+avec la commande
+```
+docker stats
+```
+On obtient:
+```
+CONTAINER ID   NAME           CPU %     MEM USAGE / LIMIT     MEM %     NET I/O       BLOCK I/O     PIDS
+40d35efca128   nginx-docker   0.00%     2.617MiB / 3.832GiB   0.07%     3.61kB / 0B   0B / 16.4kB   3
+```
+On remarque ici les informations sont très differentes d'un docker ps, ceux qui rend cette commande complémentaire à docker ps -a
 
 ### Ce qu'on sait faire avec docker pour le moment
 
