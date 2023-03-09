@@ -40,11 +40,11 @@ Il suffit de rentrer la commande
 docker ps -a
 ```
 On devrait obtenir cette affichage:
-
+```
 CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
 d8ce7caf400a   ubuntu        "bash"     5 seconds ago    Exited (0) 3 seconds ago              adoring_lalande
 04c652b113d1   hello-world   "/hello"   12 seconds ago   Exited (0) 11 seconds ago             determined_leakey
-
+```
 On remarque dans la colonne NAMES, les noms fournit au hasard par docker, si on souhaite définir un nom spécifique
 pour un container, il faudra utiliser le paramétre --name nomducontainer
 
