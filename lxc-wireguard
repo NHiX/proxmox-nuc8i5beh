@@ -1,4 +1,4 @@
-Créer un container LXC depuis Proxmox 
+Créer un container LXC avec ubuntu >= 22.04 ou Debian >= 12 depuis Proxmox 
 puis editer la config de celui-ci
 vi /etc/pve/lxc/numeroducontainerLXC.conf
 
