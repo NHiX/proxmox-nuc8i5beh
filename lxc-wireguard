@@ -1,0 +1,18 @@
+Créer un container LXC depuis Proxmox 
+puis editer la config de celui-ci
+vi /etc/pve/lxc/numeroducontainerLXC.conf
+
+Ajouter les 2 lignes suivantes à la fin du fichier de configuration
+lxc.cgroup2.devices.allow: c 10:200 rwm
+lxc.mount.entry: /dev/net dev/net none bind,create=dir
+
+Sauvegarder le fichier puis en ligne de commande
+chown 100000:100000 /dev/net/tun
+
+Vérifier ensuite la prise en compte du user/group 100000
+ls -l /dev/net/tun
+
+Ensuite on télécharge le script qui permettra ensuite de configurer wireguard et le client
+wget https://git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh
+
+Penser à ouvrir le port alloué à Wireguard en début de configuration sur votre box
