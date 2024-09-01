@@ -16,3 +16,5 @@ Ensuite on télécharge le script qui permettra ensuite de configurer wireguard 
 wget https://git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh
 
 Penser à ouvrir le port alloué à Wireguard en début de configuration sur votre box
+
+Après avoir scanné le QRcode obtenu dans l'application, renseigner sur l'app mobile le nom de domaine de connexion
