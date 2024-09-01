@@ -12,6 +12,8 @@ chown 100000:100000 /dev/net/tun
 Vérifier ensuite la prise en compte du user/group 100000
 ls -l /dev/net/tun
 
+Connexion depuis proxmox sur le LXC avec lxc-attach numeroducontainer
+
 Ensuite on télécharge le script qui permettra ensuite de configurer wireguard et le client
 wget https://git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh
 
