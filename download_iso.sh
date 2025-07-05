@@ -27,6 +27,12 @@ download_if_new() {
             log_message "Téléchargement de $distro: $filename"
             if curl -L -o "$filepath" "$url"; then
                 log_message "NOUVELLE VERSION TÉLÉCHARGÉE: $distro - $filename"
+                
+                # Pour Arch Linux, supprimer les anciennes versions après téléchargement réussi
+                if [[ "$distro" == "Arch Linux" ]]; then
+                    log_message "Suppression des anciennes versions Arch Linux..."
+                    find "$ISO_DIR" -name "archlinux-[0-9][0-9][0-9][0-9].[0-9][0-9].[0-9][0-9]-x86_64.iso" ! -name "$filename" -delete
+                fi
             else
                 log_message "ERREUR: Échec du téléchargement de $distro"
                 rm -f "$filepath"
